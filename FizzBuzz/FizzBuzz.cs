@@ -6,6 +6,24 @@ namespace FizzBuzz
     {
         public string CountOff(int order)
         {
+//            need refactor,too much if
+            if (order % 7 == 0 && order % 5 == 0 && order % 3 == 0)
+            {
+                return "FizzBuzzWhizz";
+            }
+            if (order % 7 == 0 && order % 5 == 0)
+            {
+                return "BuzzWhizz";
+            }
+            if (order % 7 == 0  && order % 3 == 0)
+            {
+                return "FizzWhizz";
+            }
+            if (order % 5 == 0 && order % 3 == 0)
+            {
+                return "FizzBuzz";
+            }
+            
             if (order % 3 == 0)
             {
                 return "Fizz";

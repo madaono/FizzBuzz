@@ -45,5 +45,17 @@ namespace FizzBuzzTest
             var result = fizzBuzz.CountOff(order);
             Assert.Equal("Whizz", result);
         }
+
+        [Theory]
+        [InlineData(15, "FizzBuzz")]
+        [InlineData(105, "FizzBuzzWhizz")]
+        [InlineData(21, "FizzWhizz")]
+        [InlineData(35, "BuzzWhizz")]
+        public void should_return_correct_words_given_number_is_buth_times_3_5_or_7(int order, string words)
+        {
+            var fizzBuzz = new FizzBuzz.FizzBuzz();
+            var result = fizzBuzz.CountOff(order);
+            Assert.Equal(words, result);
+        }
     }
 }
