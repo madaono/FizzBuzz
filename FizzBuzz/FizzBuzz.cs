@@ -7,6 +7,20 @@ namespace FizzBuzz
         public string CountOff(int order)
         {
 //            need refactor,too much if
+            if (order.ToString().Contains("7"))
+            {
+                if (order % 7 == 0 && order % 3 == 0)
+                {
+                    return "FizzWhizz";
+                }
+                if (order.ToString().Contains("3") || order % 3 == 0)
+                {
+                    return "Fizz";
+                }
+                
+                return "Whizz";
+            }
+            
             if (order.ToString().Contains("5"))
             {
                 if (order % 7 == 0 && order % 5 == 0)

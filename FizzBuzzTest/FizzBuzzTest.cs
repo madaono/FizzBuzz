@@ -78,5 +78,15 @@ namespace FizzBuzzTest
             Assert.Equal(words, result);
         }
         
+        [Theory]
+        [InlineData(147, "FizzWhizz")]
+        [InlineData(73, "Fizz")]
+        [InlineData(75, "Fizz")]
+        public void should_not_return_contains_buzz_given_number_contains_5_even_contains_3_or_times_3(int order, string words)
+        {
+            var fizzBuzz = new FizzBuzz.FizzBuzz();
+            var result = fizzBuzz.CountOff(order);
+            Assert.Equal(words, result);
+        }
     }
 }
