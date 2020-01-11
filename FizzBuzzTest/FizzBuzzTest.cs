@@ -47,8 +47,8 @@ namespace FizzBuzzTest
         }
 
         [Theory]
-        [InlineData(15, "FizzBuzz")]
-        [InlineData(105, "FizzBuzzWhizz")]
+        [InlineData(15, "Buzz")]
+        [InlineData(105, "BuzzWhizz")]
         [InlineData(21, "FizzWhizz")]
         [InlineData(35, "BuzzWhizz")]
         public void should_return_correct_words_given_number_is_buth_times_3_5_or_7(int order, string words)
@@ -57,5 +57,26 @@ namespace FizzBuzzTest
             var result = fizzBuzz.CountOff(order);
             Assert.Equal(words, result);
         }
+
+        [Theory]
+        [InlineData(30)]
+        [InlineData(13)]
+        public void should_return_fizz_given_number_contains_3(int order)
+        {
+            var fizzBuzz = new FizzBuzz.FizzBuzz();
+            var result = fizzBuzz.CountOff(order);
+            Assert.Equal("Fizz", result);
+        }
+
+        [Theory]
+        [InlineData(35, "BuzzWhizz")]
+        [InlineData(15, "Buzz")]
+        public void should_not_return_contains_fizz_given_number_contains_5_even_contains_3_or_times_3(int order, string words)
+        {
+            var fizzBuzz = new FizzBuzz.FizzBuzz();
+            var result = fizzBuzz.CountOff(order);
+            Assert.Equal(words, result);
+        }
+        
     }
 }
