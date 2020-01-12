@@ -7,21 +7,36 @@ namespace FizzBuzz
     {
         public string CountOff(int order)
         {
+            string contains;
 //            need refactor,too much if
+            contains = (((ContainsSevenWords(order) ?? ContainsFiveWord(order)) ?? GetContainsThreeWord(order)) ??
+                        GetMultipleWords(order)) ?? GetBaseWord(order);
+
+            return contains ?? order.ToString();
+        }
+
+        private static string ContainsSevenWords(int order)
+        {
             if (order.ToString().Contains("7"))
             {
                 if (order % 7 == 0 && order % 3 == 0)
                 {
                     return "FizzWhizz";
                 }
+
                 if (order.ToString().Contains("3") || order % 3 == 0)
                 {
                     return "Fizz";
                 }
-                
+
                 return "Whizz";
             }
-            
+
+            return null;
+        }
+
+        private static string ContainsFiveWord(int order)
+        {
             if (order.ToString().Contains("5"))
             {
                 if (order % 7 == 0 && order % 5 == 0)
@@ -31,20 +46,18 @@ namespace FizzBuzz
 
                 return "Buzz";
             }
+
+            return null;
+        }
+
+        private static string GetContainsThreeWord(int order)
+        {
             if (order.ToString().Contains("3"))
             {
                 return "Fizz";
             }
 
-
-            var multipleWords = GetMultipleWords(order);
-            if (multipleWords != null)
-            {
-                return multipleWords;
-            }
-            var words = GetBaseWord(order);
-
-            return words ?? order.ToString();
+            return null;
         }
 
         private string GetMultipleWords(int order)
